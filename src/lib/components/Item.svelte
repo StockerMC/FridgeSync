@@ -33,7 +33,10 @@
 	</div>
 {:else}
 	<Modal show={$modal}>
-		<div class="card p-4 card-hover">
+		<div class="card card-hover overflow-hidden">
+			<header>
+				<img src={photo ? photo.url : ''} draggable="false" class="bg-black/50 w-full aspect-[21/9] object-cover" alt="" />
+			</header>
 			<header class="card-header font-bold text-xl">
 				<a href="/nutrition/{item.name}">
 					{item.name}
@@ -45,7 +48,6 @@
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 			</section>
-			<img src={photo ? photo.url : ''} alt="">
 		</div>
 	</Modal>
 {/if}
