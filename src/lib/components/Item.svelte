@@ -45,7 +45,6 @@
 				<div class="grid grid-cols-2 gap-2">
 					<button on:click={showModal}><img src="/edit.png" alt="Edit" class="w-4 h-4"></button>
 					<button class="" on:click={async () => {
-						console.log('REQUESTING')
 						const response = await fetch('/api/delete-item?id=' + item.id.toString(), {method: 'POST'});
 						invalidateAll();
 					}}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
@@ -57,6 +56,7 @@
 				<p><span class="font-semibold">Type:</span> {item.type}</p>
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
+				<p><span class="font-semibold">Healthy:</span> {item.healthy ? 'Yes' : 'No'}</p>
 			</section>
 		</div>
 	</Modal>
