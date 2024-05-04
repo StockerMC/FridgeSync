@@ -48,7 +48,7 @@
 			<Item item={item}>{item.name}</Item>
 		{/each}
 	</div>
-	<input type="text" id="recipePrompt">
+	<input class="input w-80 mt-4 mb-4" type="text" id="recipePrompt">
 	<h2>Optionally enter a prompt for a recipe</h2>
 	<button type="submit" id="recipeSubmit">Get a personalized grocery list!</button>
 	<p>{$recipe}</p>

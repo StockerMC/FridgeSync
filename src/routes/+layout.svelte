@@ -3,7 +3,6 @@
 	import { page } from "$app/stores";
 	import "../app.postcss";
 	import { AppShell, AppBar } from "@skeletonlabs/skeleton";
-
 	// Highlight JS
 	import hljs from "highlight.js/lib/core";
 	import "highlight.js/styles/github-dark.css";
@@ -28,7 +27,6 @@
 
 	export let data;
 </script>
-
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
@@ -69,7 +67,7 @@
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
-		{#if $page.url.pathname.includes("dashboard") || $page.url.pathname.includes("recipes")}
+		{#if $page.url.pathname.includes("dashboard") || $page.url.pathname.includes("recipes")  || $page.url.pathname.includes("groceries")}
 			<Sidebar />
 		{/if}
 	</svelte:fragment>
