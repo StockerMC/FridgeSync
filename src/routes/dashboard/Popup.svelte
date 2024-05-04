@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from "svelte";
     export let message = 'Hi';
+    import { getContext } from 'svelte';
+    const { close } = getContext('simple-modal') as any;
     
     let stream: MediaStream;
     let videoRef: HTMLVideoElement;
@@ -79,6 +81,7 @@
             } else {
                 clearphoto();
             }
+            close();
         }
 
         takepicture();
@@ -87,7 +90,10 @@
         videoRef.srcObject = null;
     }
 
-    getStream();
+    onMount(() => {
+        getStream();
+    })
+
 
 </script>
   
