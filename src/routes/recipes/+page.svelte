@@ -12,16 +12,16 @@
 	recipe.subscribe((value) => recipeValue = value);
 	const search = async () => {
 		let prompt: string = recipePrompt.value;
-		console.log(prompt);
+		// console.log(prompt);
 		if (!prompt) return;
 		const ingredients = data.fridge.map((item) => {
 			return item.name;
 		});
-		console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
+		// console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
 		const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`, {
 			method: "POST"
 		});
-		console.log("fowiejfoew");
+		// console.log("fowiejfoew");
 
 		const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
 		while (true) {

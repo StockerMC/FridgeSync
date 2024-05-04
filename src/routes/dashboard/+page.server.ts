@@ -23,7 +23,7 @@ export async function load() {
       id: Number.parseInt(a.name.split('.')[0])
     };
   });
-  console.log(x);
+  // console.log(x);
   interface PhotoData {
     url: string,
     id: number
