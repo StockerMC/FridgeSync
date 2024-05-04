@@ -12,15 +12,15 @@
 	};
 </script>
 
-<div class="p-24 flex">
-	<div class="pt-24 pl-24 flex flex-col gap-32">
-		<h1 class="text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Cooking Up Convenience!</h1>
-		<div class="flex gap-12">
+<div class="pl-6 sm:pl-0 sm:p-24 flex sm:justify-start">
+	<div class="pt-24 sm:pl-24 flex flex-col sm:items-start items-center gap-32">
+		<h1 class="text-5xl sm:items-start items-center text-center sm:text-left sm:text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Cooking Up Convenience!</h1>
+		<div class="flex gap-4 justify-center sm:justify-start">
 			<button type="button" class="btn variant-filled">
-				<a href="/dashboard" class="text-2xl p-2">Get Started</a>
+				<a href="/dashboard" class="text-xl sm:text-2xl sm:p-2">Get Started</a>
 			</button>
 			<button type="button" class="btn variant-ghost">
-				<a href="#about" on:click|preventDefault={scrollIntoView} class="text-2xl p-2">Learn More</a>
+				<a href="#about" on:click|preventDefault={scrollIntoView} class="text-xl sm:text-2xl p-2">Learn More</a>
 			</button>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 <br>
 <br>
 <br>
-<div class="p-24 pt-36 flex gap-8" id="about">
+<div class="p-4 sm:p-24 sm:pt-36 flex flex-col sm:flex-row gap-8" id="about">
 	<!--Todo improve this-->
 	<div class="card card-hover overflow-hidden">
 		<header>
