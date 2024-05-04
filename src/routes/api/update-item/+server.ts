@@ -29,8 +29,6 @@ export const POST: RequestHandler = async ({request}) => {
 		quantity, type, calories, name
 	}, id);
 
-	console.log(data, error);
-
 	return new Response(
         'Good',
         {

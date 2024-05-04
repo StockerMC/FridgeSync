@@ -23,8 +23,6 @@
         } catch (err) {
             console.error(err);
         }
-        console.log(stream.getTracks()[0])
-
 
         videoRef.addEventListener(
             "canplay",
@@ -77,7 +75,6 @@
                         method: 'POST',
                         body: data
                     })
-                    console.log(await response.text())
                     invalidateAll();
                 }
                 request()
