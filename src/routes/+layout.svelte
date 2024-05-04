@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { scale } from "svelte/transition";
 	import { page } from "$app/stores";
 	import "../app.postcss";
 	import { AppShell, AppBar } from "@skeletonlabs/skeleton";
@@ -24,6 +25,8 @@
 	import Sidebar from "$lib/components/Sidebar.svelte";
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	export let data;
 </script>
 
 <!-- App Shell -->
@@ -69,5 +72,10 @@
 		{/if}
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<slot />
+
+	{#key data.pathname}
+		<div transition:scale>
+			<slot />
+		</div>
+	{/key}
 </AppShell>
