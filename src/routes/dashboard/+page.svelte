@@ -43,17 +43,16 @@
 <Modal show={$modal}>
 	<div class="p-3 ml-16 mr-16">
 		<h1 class="text-7xl pb-12 pt-12 text-center"><span class="gradient-heading">Fridge Contents</span></h1>
-		<div class="flex flex-col items-center">
-			<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
-				<div class="input-group-shim">🔍</div>
+		<div class="flex w-full align-center justify-between">
+			<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
+				<div class="input-group-divider">🔍</div>
 				<input type="search" placeholder="Search In Your Fridge:" bind:value={searchquery} />
 			</div>
-		</div>
-		<div class="flex mb-2">
-			<button on:click={showModal} type="button" class="btn variant-filled mr-auto"><span
+			<button on:click={showModal} type="button" class="btn variant-filled"><span
 				class="font-extrabold text-xl pr-1">+</span>Add
 			</button>
 		</div>
+
 		<div class="grid grid-cols-4 gap-6 mt-6">
 			<!-- {#each {length: 7} as _, i}
 				<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
