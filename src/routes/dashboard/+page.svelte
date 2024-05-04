@@ -41,19 +41,23 @@
 </script>
 
 <Modal show={$modal}>
-	<div class="p-3 ml-16 mr-16">
-		<h1 class="text-7xl pb-12 pt-12 text-center"><span class="gradient-heading">Fridge Contents</span></h1>
-		<div class="flex w-full align-center justify-between">
-			<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
+	<div class="sm:p-3 ml-16 mr-16 flex=col items-center sm:items-start">
+		<h1 class="text-5xl sm:text-7xl pb-12 pt-12 self-center"><span class="gradient-heading text-center self-center">Fridge Contents</span></h1>
+		<div class="flex w-full align-center justify-between gap-x-4 sm:gap-0">
+			<div class="hidden sm:block input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
 				<div class="input-group-divider">🔍</div>
 				<input type="search" placeholder="Search In Your Fridge:" bind:value={searchquery} />
 			</div>
+			<div class="sm:hidden input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
+				<input class="" type="search" placeholder="Search..." bind:value={searchquery} />
+			</div>
+			
 			<button on:click={showModal} type="button" class="btn variant-filled"><span
 				class="font-extrabold text-xl pr-1">+</span>Add
 			</button>
 		</div>
 
-		<div class="grid grid-cols-4 gap-6 mt-6">
+		<div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mt-6">
 			<!-- {#each {length: 7} as _, i}
 				<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 			{/each} -->
