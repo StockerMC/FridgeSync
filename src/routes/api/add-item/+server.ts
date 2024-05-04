@@ -3,7 +3,7 @@ import {openai} from "$lib/openai";
 import type { RequestHandler } from "@sveltejs/kit";
 
 // name, type, quantity, healthy, calories
-export const POST: RequestHandler = async ({request}) => {
+export const GET: RequestHandler = async ({request}) => {
 	//let { image } = await request.json();
 	//const base64_image = Buffer.from(image, "base64").toString("base64");
 	const result = await openai.chat.completions.create({
@@ -14,7 +14,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "What’s in this image?"
+						text: "What's in this image?"
 					},
 					/*{
 						type: "image_url",
@@ -27,5 +27,13 @@ export const POST: RequestHandler = async ({request}) => {
 		],
 		max_tokens: 30
 	});
-	return new Response(JSON.stringify(result), {});
-}
+	return new Response(
+        result.choices[0].message.content,
+        {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST',
+            }
+        }
+    );
+};
