@@ -4,7 +4,7 @@
 	import { writable } from "svelte/store";
 	import EditItem from "$lib/components/EditItem.svelte";
 	import type { ComponentType } from "svelte";
-	
+
 	export let item: Tables<'fridge'>;
 	const modal = writable<ComponentType | null>(null);
 	const showModal = () => modal.set(bind(EditItem, { item: item }));
@@ -29,18 +29,13 @@
 {:else}
 	<Modal show={$modal}>
 		<div class="card p-4">
-			<header class="card-header">
-				<h2 class="card-title mr-auto">{item.name}</h2>
-				<button class="ml-auto" on:click={showModal}>edit</button>
-				<button on:click={() => fetch(`/api/fridge/${item.id}`, { method: "DELETE" })}>delete</button>
-			</header>
-			<section class="p-4">
-				<p>Type: {item.type}</p>
-				<p>Quantity: {item.quantity}</p>
-				<p>Calories: {item.calories}</p>
+			<header class="card-header font-bold text-xl">{item.name}</header>
+			<section class="p-4 text-lg">
+				<p><span class="font-semibold">Type:</span> {item.type}</p>
+				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
+				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 			</section>
 		</div>
 	</Modal>
 {/if}
-
 

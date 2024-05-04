@@ -18,10 +18,10 @@
 		<h1 class="text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Instant Inventory!</h1>
 		<div class="flex gap-12">
 			<button type="button" class="btn variant-filled">
-				<a href="/dashboard">Get Started</a>
+				<a href="/dashboard" class="text-2xl p-2">Get Started</a>
 			</button>
 			<button type="button" class="btn variant-ghost">
-				<a href="#about" on:click|preventDefault={scrollIntoView}>Learn More</a>
+				<a href="#about" on:click|preventDefault={scrollIntoView} class="text-2xl p-2">Learn More</a>
 			</button>
 		</div>
 	</div>
@@ -65,6 +65,6 @@
         /* Direction */
         @apply bg-gradient-to-br;
         /* Color Stops */
-        @apply from-primary-600 via-secondary-400 to-primary-400;
+        @apply from-tertiary-600 via-secondary-800 to-primary-800;
     }
 </style>
