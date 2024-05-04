@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "What food/ingredient is in this image? Answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?\nQuantity"
+						text: "Given this image of a food/ingredient, answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional, do not put any extra descriptors (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?\nQuantity"
 					},
 					{
 						type: "image_url",
