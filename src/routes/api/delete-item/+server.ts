@@ -1,4 +1,3 @@
-
 import type { Database } from "$lib/database-types";
 import { supabase } from "$lib/supabaseClient";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -24,7 +23,6 @@ export const POST: RequestHandler = async ({request}) => {
     const { searchParams } = new URL(request.url);
 	const id = Number.parseInt(searchParams.get('id') || '-1');
     
-    console.log('TEST');
 	const { data, error } = await deleteItem(supabase, id);
 
 	return new Response(
