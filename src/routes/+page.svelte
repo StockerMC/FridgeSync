@@ -33,7 +33,6 @@
 <br>
 <br>
 <div class="p-4 sm:p-24 sm:pt-36 flex flex-col sm:flex-row gap-8" id="about">
-	<!--Todo improve this-->
 	<div class="card card-hover overflow-hidden w-1/2">
 		<header>
 			<img src={pattern} draggable="false" class="bg-black/50 w-full aspect-[21/9]" alt="pattern" />

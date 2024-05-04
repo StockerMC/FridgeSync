@@ -11,24 +11,6 @@
 
 	export let data;
 
-	// onMount(() => {
-	// 	document.getElementsByTagName('button')[0].addEventListener('click', async () => {
-	// 		// @ts-ignore
-	// 		let a = document.getElementsByTagName('input')[0].files[0];
-	// 		console.log(a)
-	// 		// TODO: save image to database
-	// 		const data = new FormData();
-	// 		// @ts-ignore
-
-	// 		data.append('image', await toBase64(a));
-	// 		const response = await fetch(`/api/add-item`, {
-	// 			method: 'POST',
-	// 			body: data
-	// 		})
-	// 		console.log(await response.text())
-	// 	})
-	// });
-
 	import { writable } from "svelte/store";
 	import Modal, { bind } from "svelte-simple-modal";
 	import Popup from "./Popup.svelte";

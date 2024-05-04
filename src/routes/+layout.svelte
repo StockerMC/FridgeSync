@@ -33,7 +33,6 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<!--Todo maybe change this-->
 				<strong class="text-xl">
 					<a href="/">FridgeSync</a>
 				</strong>
