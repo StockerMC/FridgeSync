@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "Given this image of a food/ingredient, answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional, do not put any extra descriptors (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?\nQuantity"
+						text: "Given this image of a food/ingredient, you are to fill out this template: title, type, quantity, healthy, calories. They must be comma separated and conform to the template. The title must be the name of the food/ingredient and less than 3 words. Type field MUST be one of the following: Fruits, Vegetables, Grains, Meat, Dairy, Sweets, Beverages, Condiments, Other. Quantity must be a number. Healthy must be 'y' or 'n'. Calories must be a number, the number of calories in one item of an average sized type of that food. Use 'null' if a field is not applicable. An example of a proper response is: Apple, Fruits/Vegetables, y, 95, 1"
 					},
 					{
 						type: "image_url",
@@ -46,7 +46,7 @@ export const POST: RequestHandler = async ({request}) => {
 		max_tokens: 30
 	});
 
-	const lines = (result.choices[0].message.content as string).split('\n');
+	const lines = (result.choices[0].message.content as string).split(',').map(s => s.trim());
 
 	const { data, error } = await saveItem(supabase, {
 		'name': lines[0],

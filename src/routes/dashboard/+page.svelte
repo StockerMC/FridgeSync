@@ -13,6 +13,7 @@
 
 	onMount(() => {
 		document.getElementsByTagName('button')[0].addEventListener('click', async () => {
+
 			// @ts-ignore
 			let a = document.getElementsByTagName('input')[0].files[0];
 			console.log(a)
@@ -41,7 +42,7 @@
 			<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 		{/each} -->
 		{#each data.fridge as item}
-			<Item item={item}>{item.name}</Item>
+			<Item item={item}></Item>
 		{/each}
 	</div>
 </div>
