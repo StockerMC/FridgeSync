@@ -1,9 +1,35 @@
 <script lang="ts">
 	import Item from '$lib/components/Item.svelte';
-	let items = [];
+	import { onMount } from 'svelte';
+
+	const toBase64: (file: File) => any = file => new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = () => resolve(reader.result);
+		reader.onerror = reject;
+	});
+
+
+	onMount(() => {
+		document.getElementsByTagName('button')[0].addEventListener('click', async () => {
+			// @ts-ignore
+			let a = document.getElementsByTagName('input')[0].files[0];
+			console.log(a)
+			// TODO: save image to database
+			const data = new FormData();
+			// @ts-ignore
+
+			data.append('image', await toBase64(a));
+			const response = await fetch(`/api/add-item`, {
+				method: 'POST',
+				body: data
+			})
+			console.log(await response.text())
+		})
+	})
 </script>
 
-
+<input type="file"/>Test
 <div class="p-3">
 	<div class="flex mb-2">
 		<button type="button" class="btn variant-filled mr-auto"><span class="font-extrabold text-xl pr-1">+</span>add</button>
@@ -15,4 +41,3 @@
 		{/each}
 	</div>
 </div>
-
