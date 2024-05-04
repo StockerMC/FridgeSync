@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ConicGradient, type ConicStop } from "@skeletonlabs/skeleton";
+	import { browser } from "$app/environment";
 
 	export let data;
 
@@ -15,19 +16,19 @@
 		"beverages": 0,
 		"condiments": 0,
 		"other": 0
-	}
+	};
 
 	const typeColours: Record<string, string> = {
-		"fruit": "rgba(255,0,0,1)",
-		"vegetable": "rgba(0,255,0,1)",
-		"meat": "rgba(0,0,255,1)",
-		"dairy": "rgba(255,255,0,1)",
-		"grains": "rgba(0,255,255,1)",
-		"sweets": "rgba(255,0,255,1)",
-		"beverages": "rgba(255,255,255,1)",
-		"condiments": "rgba(0,0,0,1)",
-		"other": "rgba(128,128,128,1)"
-	}
+		"condiments": "#B5B3FE",
+		"vegetable": "#B9E5FD",
+		"meat": "#ECD5ED",
+		"dairy": "#55C8DF",
+		"grains": "#BB5C9B",
+		"sweets": "#BAB9FA",
+		"beverages": "#FDE7B2",
+		"fruit": "#F64455",
+		"other": "rgb(255,255,255)"
+	};
 
 	for (const item of data.fridge) {
 		numItems += item.quantity ?? 1;
@@ -36,14 +37,14 @@
 
 	console.log(typeCount);
 
-	const typeData: ConicStop[] = []
+	const typeData: ConicStop[] = [];
 	let currentPos = 0;
 	for (const [type, count] of Object.entries(typeCount)) {
 		typeData.push({
 			label: type,
 			color: typeColours[type.toLowerCase().trim()],
 			start: currentPos,
-			end: currentPos + count / numItems * 100,
+			end: currentPos + count / numItems * 100
 		});
 		currentPos += count / numItems * 100;
 	}
@@ -51,9 +52,127 @@
 
 <div class="p-24 flex gap-8">
 	<div class="p-8 card card-hover overflow-hidden w-full">
-		<ConicGradient stops={typeData} legend>Type Distribution</ConicGradient>
+		{#if browser}
+			<ConicGradient width="w-64" stops={typeData} legend>Type Distribution</ConicGradient>
+		{:else}
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+		{/if}
 	</div>
 	<div class="p-8 card card-hover overflow-hidden w-full">
-		<ConicGradient stops={typeData} legend>Type Distribution</ConicGradient>
+		{#if browser}
+			<ConicGradient width="w-64" stops={typeData} legend>Type Distribution</ConicGradient>
+		{:else}
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+			<div class="p-4 space-y-4">
+				<div class="placeholder" />
+				<div class="grid grid-cols-3 gap-8">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+				<div class="grid grid-cols-4 gap-4">
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+					<div class="placeholder" />
+				</div>
+			</div>
+		{/if}
 	</div>
 </div>
