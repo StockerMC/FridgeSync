@@ -34,13 +34,16 @@
 {:else}
 	<Modal show={$modal}>
 		<div class="card p-4 card-hover">
-			<header class="card-header font-bold text-xl">
+			<header class="card-header font-bold text-xl flex justify-between">
 				<a href="/nutrition/{item.name}">
 					{item.name}
 				</a>
+				<div class="grid grid-cols-2 gap-2">
+					<button on:click={showModal}><img src="/edit.png" alt="Edit" class="w-4 h-4"></button>
+					<button class="" on:click={showModal}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
+				</div>
 			</header>
 			<section class="p-4 text-lg">
-				<button class="btn variant-ghost mb-4" on:click={showModal}>Edit</button>
 				<p><span class="font-semibold">Type:</span> {item.type}</p>
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
