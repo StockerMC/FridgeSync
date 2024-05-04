@@ -17,11 +17,19 @@ export const load: PageServerLoad = async ({ params }) => {
 		}
 
 		const data = await response.json();
-		return {
-			nutrition: data
-		};
+
+		if (data.items.length === 0) {
+			error(404, "Food does not exist!");
+		}
+
+		if (data.items.length >= 1) {
+			return {
+				nutrition: data
+			};
+		}
 
 	} catch (error) {
 		console.log("Request failed:", error);
 	}
+	error(404, "Food does not exist!");
 };
