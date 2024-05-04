@@ -1,5 +1,7 @@
 <script lang="ts">
 	import fridge from "$lib/images/fridge.png";
+	import pattern from "$lib/images/pattern.png";
+	import pattern2 from "$lib/images/pattern2.png";
 
 	const scrollIntoView = ({ target }: any) => {
 		const el = document.querySelector(target.getAttribute("href"));
@@ -27,16 +29,34 @@
 		<img alt="fridge" src={fridge} draggable="false">
 	</div>
 </div>
-<div class="p-24 pt-36" id="about">
+<div class="p-24 pt-36 flex gap-8" id="about">
 	<!--Todo improve this-->
-	<h1 class="text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, distinctio dolor dolorem error
-		fugit impedit in
-		labore pariatur tempora vero! Accusantium ad adipisci aliquam est itaque. Architecto corporis dicta dignissimos
-		doloribus ea eius et eum labore laborum libero molestias obcaecati odit, porro quaerat quisquam reprehenderit
-		unde veniam voluptatibus? Alias amet assumenda distinctio dolor doloremque eos ex fugit iure magni molestias,
-		nam nisi nostrum perferendis rerum sequi tenetur unde voluptas. Exercitationem illum saepe tempore ut. Accusamus
-		consectetur deleniti dicta, dolore dolores eligendi et in laboriosam laborum laudantium nam natus nesciunt
-		officiis pariatur praesentium provident quis rem reprehenderit, sed tenetur vitae voluptatum.</h1>
+	<div class="card card-hover overflow-hidden">
+		<header>
+			<img src={pattern} draggable="false" class="bg-black/50 w-full aspect-[21/9]" alt="pattern" />
+		</header>
+		<div class="p-4">
+			<h1 class="text-4xl pb-4" data-toc-ignore>About Us</h1>
+			<h1 class="text-xl">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi
+				cumque consequatur tempore
+				sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+			</h1>
+		</div>
+	</div>
+	<div class="card card-hover overflow-hidden">
+		<header>
+			<img src={pattern2} draggable="false" class="bg-black/50 w-full aspect-[21/9]" alt="pattern" />
+		</header>
+		<div class="p-4">
+			<h1 class="text-4xl pb-4" data-toc-ignore>Our Features</h1>
+			<h1 class="text-xl">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi
+				cumque consequatur tempore
+				sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+			</h1>
+		</div>
+	</div>
 </div>
 
 <style>
