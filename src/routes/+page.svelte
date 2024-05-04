@@ -27,7 +27,7 @@
 		<img alt="fridge" src={fridge} draggable="false">
 	</div>
 </div>
-<div class="p-24" id="about">
+<div class="p-24 pt-36" id="about">
 	<!--Todo improve this-->
 	<h1 class="text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, distinctio dolor dolorem error
 		fugit impedit in
