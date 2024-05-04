@@ -11,6 +11,8 @@
 	let recipePrompt: HTMLInputElement;
 	recipe.subscribe((value) => recipeValue = value);
 	const search = async () => {
+		recipeValue="";
+		recipe.set("");
 		let prompt: string = recipePrompt.value;
 		// console.log(prompt);
 		if (!prompt) return;
@@ -52,7 +54,7 @@
 
 	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10 justify-center">
 		{#each data.fridge as item}
-			<div class="snap-center shrink-0 card w-60 text-center">
+			<div class="snap-center shrink-0 card w-60 h-full text-center">
 				<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}></Item>
 			</div>
 		{/each}

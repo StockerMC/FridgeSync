@@ -6,37 +6,46 @@
 
 	import { writable } from 'svelte/store';
 
-	const recipe = writable('');
-	let recipeValue = '';
 
-	recipe.subscribe((value) => recipeValue = value)
-
-	onMount(() => {
-		const prompt = document.getElementById('recipePrompt')?.textContent;
-		const submit = document.getElementById('recipeSubmit');
+	const recipe = writable("");
+	let recipeValue = "";
+	let recipePrompt: HTMLInputElement;
+	recipe.subscribe((value) => recipeValue = value);
+	const search = async () => {
+		recipeValue="";
+		recipe.set("");
+		let prompt: string = recipePrompt.value;
+		// console.log(prompt);
+		if (!prompt) return;
 		const ingredients = data.fridge.map((item) => {
 			return item.name;
 		});
-		submit?.addEventListener('click', async () => {
-			// TODO: past ingredients
-			const response = await fetch(`/api/fetch-groceries?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
-				method: 'POST',
-			});
+		// console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
+		const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`, {
+			method: "POST"
+		});
+		// console.log("fowiejfoew");
 
 		const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
 		while (true) {
 			const { value, done } = await reader.read();
+			console.log("resp", done, value);
 			if (done) break;
 			recipe.set(recipeValue + value);
 		}
-		})
-	})
+	};
 
 </script>
 
-<div class="p-3 ml-16 mr-16">
-	<div class="flex mb-2">
-		<button class="btn variant-filled ml-auto">⧩</button>
+<div class="p-3">
+	<div class="flex flex-col items-center">
+		<h1 class="text-6xl gradient-heading font-extrabold leading-normal p-10">Recipe Generator</h1>
+		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
+			<div class="input-group-shim">🔍</div>
+			<input type="search" placeholder="What meals are you planning to make this week?"
+				   bind:this={recipePrompt} />
+			<button class="variant-filled-tertiary submit-button" on:click={search}>Submit</button>
+		</div>
 	</div>
 	<div class="grid grid-cols-4 gap-6 mt-6">
 		<!-- {#each {length: 7} as _, i}
@@ -46,8 +55,4 @@
 			<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}>{item.name}</Item>
 		{/each}
 	</div>
-	<input class="input w-80 mt-4 mb-4" type="text" id="recipePrompt">
-	<h2>Optionally enter a prompt for a recipe</h2>
-	<button type="submit" id="recipeSubmit">Get a personalized grocery list!</button>
-	<p>{$recipe}</p>
 </div>
