@@ -34,21 +34,23 @@
 {:else}
 	<Modal show={$modal}>
 		<div class="card p-4 card-hover">
-			<header class="card-header font-bold text-xl flex justify-between">
+			<header>
+				<img src={photo ? photo.url : ''} draggable="false" class="bg-black/50 w-full aspect-[21/9] object-cover" alt="" />
+			</header>
+			<header class="card-header font-bold text-xl">
 				<a href="/nutrition/{item.name}">
 					{item.name}
 				</a>
-				<div class="grid grid-cols-2 gap-2">
-					<button on:click={showModal}><img src="/edit.png" alt="Edit" class="w-4 h-4"></button>
-					<button class="" on:click={showModal}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
-				</div>
 			</header>
 			<section class="p-4 text-lg">
+				<div class="grid grid-cols-2 gap-2">
+				<button on:click={showModal}><img src="/edit.png" alt="Edit" class="w-4 h-4"></button>
+				<button class="" on:click={showModal}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
+			</div>
 				<p><span class="font-semibold">Type:</span> {item.type}</p>
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 			</section>
-			<img src={photo ? photo.url : ''} alt="">
 		</div>
 	</Modal>
 {/if}
