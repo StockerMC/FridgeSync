@@ -46,7 +46,7 @@
 			<button class="variant-filled-tertiary submit-button" on:click={search}>Submit</button>
 		</div>
 		{#if recipeValue}
-			<div class="variant-filled-surface rounded-3xl p-6 m-12">
+			<div class="bg-surface-700 text-white rounded-3xl p-6 m-12 text-xl">
 				<p>{@html $recipe}</p>
 			</div>
 		{/if}

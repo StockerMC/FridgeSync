@@ -16,12 +16,12 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "Given the following ingredients (plus some more simple ingredients only if necessary), come up with a simple grocery list for a week and add your brief reasoning (new line after each item). Don't list current ingredients: " + ingredients + (prompt ? ". This is an idea/prompt from the user of recipes for the week: " + prompt : '') + ". Use HTML tags instead of markdown when formatting your response."
+						text: "Given the following ingredients (plus some more simple ingredients only if necessary), come up with a simple grocery list for a week and add your brief reasoning (new line after each item). Also include an approximate price range in CAD. Don't list current ingredients: " + ingredients + (prompt ? ". This is an idea/prompt from the user of recipes for the week: " + prompt : '') + ". Use HTML tags instead of markdown when formatting your response."
 					},
 				]
 			}
 		],
-		max_tokens: 200,
+		max_tokens: 4000,
         stream: true
 	});
 

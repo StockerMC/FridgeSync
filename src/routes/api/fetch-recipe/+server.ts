@@ -22,7 +22,7 @@ export const POST: RequestHandler = async ({request}) => {
 				]
 			}
 		],
-		max_tokens: 200,
+		max_tokens: 4000,
         stream: true
 	});
 
