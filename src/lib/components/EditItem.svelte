@@ -11,7 +11,7 @@
 	<form>
 		<label class="label">
 			<span>Name</span>
-			<input class="input" type="text" value={item.name}/>
+			<input class="input" type="text" name="name" value={item.name}/>
 		</label>
 		<label class="label">
 			<span>Category</span>
@@ -39,9 +39,12 @@
 			<button class="btn variant-ghost" on:click={close}>Cancel</button>
 			<button class="btn variant-filled ml-3" on:click={async () => {
 				const category = document.getElementsByTagName('select')[0].value || item.type;
-				const name = document.getElementsByTagName('input')[0].value || item.name;
-				const quantity = document.getElementsByTagName('input')[1].value || item.quantity;
-				const calories = document.getElementsByTagName('input')[2].value || item.calories;
+				// @ts-ignore
+				const name = document.getElementsByName('name')[0].value || item.name;
+				// @ts-ignore
+				const quantity = document.getElementsByName('quantity')[0].value || item.quantity;
+				// @ts-ignore
+				const calories = document.getElementsByName('calories')[0].value || item.calories;
 
 				const response = await fetch(`/api/update-item?name=${name}&type=${category}&quantity=${quantity}&calories=${calories}&id=${item.id}`,
 					{
