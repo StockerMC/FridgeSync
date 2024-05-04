@@ -54,7 +54,7 @@
 			<section class="p-4 text-lg">
 
 				<p><span class="font-semibold">Type:</span> {item.type}</p>
-				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
+				<p><span class="font-semibold">Quantity:</span> {item.quantity || 1}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 				<p><span class="font-semibold">Healthy:</span> {item.healthy ? 'Yes' : 'No'}</p>
 			</section>
