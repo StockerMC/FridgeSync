@@ -43,9 +43,11 @@
 <Modal show={$modal}>
 	<div class="p-3 ml-16 mr-16">
 		<h1 class="text-7xl pb-12 pt-12 text-center"><span class="gradient-heading">Fridge Contents</span></h1>
-		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
-			<div class="input-group-shim">🔍</div>
-			<input type="search" placeholder="Search In Your Fridge:" bind:value={searchquery}/>
+		<div class="flex flex-col items-center">
+			<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
+				<div class="input-group-shim">🔍</div>
+				<input type="search" placeholder="Search In Your Fridge:" bind:value={searchquery} />
+			</div>
 		</div>
 		<div class="flex mb-2">
 			<button on:click={showModal} type="button" class="btn variant-filled mr-auto"><span
