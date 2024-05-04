@@ -33,15 +33,16 @@
 		</label>
 		<label class="label">
 			<span>Calories</span>
-			<inpugraint class="input" type="number" name="calories" min="0" step="1" value={item.calories} />
+			<input class="input" type="number" name="calories" min="0" step="1" value={item.calories} />
 		</label>
 		<div class="flex justify-end mt-4">
 			<button class="btn variant-ghost" on:click={close}>Cancel</button>
 			<button class="btn variant-filled ml-3" on:click={async () => {
-				const category = document.getElementsByTagName('select')[0].value;
-				const name = document.getElementsByTagName('input')[0].value;
-				const quantity = document.getElementsByTagName('input')[1].value;
-				const calories = document.getElementsByTagName('input')[2].value;
+				const category = document.getElementsByTagName('select')[0].value || item.type;
+				const name = document.getElementsByTagName('input')[0].value || item.name;
+				const quantity = document.getElementsByTagName('input')[1].value || item.quantity;
+				const calories = document.getElementsByTagName('input')[2].value || item.calories;
+
 				const response = await fetch(`/api/update-item?name=${name}&type=${category}&quantity=${quantity}&calories=${calories}&id=${item.id}`,
 					{
 						method: 'POST'
