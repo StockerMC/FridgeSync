@@ -11,7 +11,7 @@
 </script>
 
 {#if item === null}
-	<div class="card p-4">
+	<div class="card p-4 card-hover">
 		<div class="p-4 space-y-4">
 			<div class="placeholder animate-pulse" />
 			<div class="grid grid-cols-2 gap-8">
@@ -28,9 +28,14 @@
 	</div>
 {:else}
 	<Modal show={$modal}>
-		<div class="card p-4">
-			<header class="card-header font-bold text-xl">{item.name}</header>
+		<div class="card p-4 card-hover">
+			<header class="card-header font-bold text-xl">
+				<a href="/nutrition/{item.name}">
+					{item.name}
+				</a>
+			</header>
 			<section class="p-4 text-lg">
+				<button class="btn variant-ghost mb-4" on:click={showModal}>Edit</button>
 				<p><span class="font-semibold">Type:</span> {item.type}</p>
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
