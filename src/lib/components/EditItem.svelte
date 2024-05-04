@@ -29,7 +29,7 @@
 		</label>
 		<label class="label">
 			<span>Quantity</span>
-			<input class="input" type="number" name="quantity" min="0" step="1" value={item.quantity} />
+			<input class="input" type="number" name="quantity" min="0" step="1" value={item.quantity || 1} />
 		</label>
 		<label class="label">
 			<span>Calories</span>
