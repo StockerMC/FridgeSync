@@ -17,7 +17,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "Given the following ingredients (plus some more simple ingredients only if necessary), come up with a homemade recipe: " + ingredients + (prompt ? ". This is an idea/prompt from the user the recipe is for: " + prompt : '')
+						text: `Your job is to come up with a recipe based on ${prompt}. Mention which ingredients are available in the fridge and which ones the user would have to buy. Here are the ingredients in the fridge: ${ingredients}. Use html tags instead of markdown.`
 					},
 				]
 			}
