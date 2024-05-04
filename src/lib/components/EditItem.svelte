@@ -33,7 +33,7 @@
 		</label>
 		<label class="label">
 			<span>Calories</span>
-			<input class="input" type="number" name="calories" min="0" step="1" value={item.calories} />
+			<inpugraint class="input" type="number" name="calories" min="0" step="1" value={item.calories} />
 		</label>
 		<div class="flex justify-end mt-4">
 			<button class="btn variant-ghost" on:click={close}>Cancel</button>

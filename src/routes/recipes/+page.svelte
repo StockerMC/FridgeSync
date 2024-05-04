@@ -12,16 +12,16 @@
 	recipe.subscribe((value) => recipeValue = value);
 	const search = async () => {
 		let prompt: string = recipePrompt.value;
-		console.log(prompt);
+		// console.log(prompt);
 		if (!prompt) return;
 		const ingredients = data.fridge.map((item) => {
 			return item.name;
 		});
-		console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
+		// console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
 		const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`, {
 			method: "POST"
 		});
-		console.log("fowiejfoew");
+		// console.log("fowiejfoew");
 
 		const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
 		while (true) {
@@ -52,7 +52,9 @@
 
 	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10 justify-center">
 		{#each data.fridge as item}
-			<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}>{item.name}</Item>
+			<div class="snap-center shrink-0 card w-60 text-center">
+				<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}></Item>
+			</div>
 		{/each}
 	</div>
 

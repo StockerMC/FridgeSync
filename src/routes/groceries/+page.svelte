@@ -22,7 +22,7 @@
 			const response = await fetch(`/api/fetch-groceries?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
 				method: 'POST',
 			});
-			
+
 		const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
 		while (true) {
 			const { value, done } = await reader.read();
