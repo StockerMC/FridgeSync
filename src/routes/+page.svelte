@@ -1,5 +1,13 @@
 <script lang="ts">
 	import fridge from "$lib/images/fridge.png";
+
+	const scrollIntoView = ({ target }: any) => {
+		const el = document.querySelector(target.getAttribute("href"));
+		if (!el) return;
+		el.scrollIntoView({
+			behavior: "smooth"
+		});
+	};
 </script>
 
 <div class="p-24 flex">
@@ -10,14 +18,17 @@
 			<button type="button" class="btn variant-filled">
 				<a href="/dashboard">Get Started</a>
 			</button>
-			<button type="button" class="btn variant-ghost">Learn More</button>
+			<button type="button" class="btn variant-ghost">
+				<a href="#about" on:click|preventDefault={scrollIntoView}>Learn More</a>
+			</button>
 		</div>
 	</div>
 	<div>
 		<img alt="fridge" src={fridge} draggable="false">
 	</div>
 </div>
-<div class="p-24">
+<div class="p-24" id="about">
+	<!--Todo improve this-->
 	<h1 class="text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, distinctio dolor dolorem error
 		fugit impedit in
 		labore pariatur tempora vero! Accusantium ad adipisci aliquam est itaque. Architecto corporis dicta dignissimos
