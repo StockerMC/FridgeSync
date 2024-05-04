@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { Tables } from "$lib/database-types.js";
+    import { invalidateAll } from '$app/navigation';
 
 	export let item:Tables<'fridge'>;
+    import { getContext } from 'svelte';
+    const { close } = getContext('simple-modal') as any;
 </script>
 
 <section class="container mx-auto px-4">
@@ -26,15 +29,29 @@
 		</label>
 		<label class="label">
 			<span>Quantity</span>
-			<input class="input" type="number" min="0" step="1" value={item.quantity} />
+			<input class="input" type="number" name="quantity" min="0" step="1" value={item.quantity} />
 		</label>
 		<label class="label">
 			<span>Calories</span>
-			<input class="input" type="number" min="0" step="1" value={item.calories} />
+			<input class="input" type="number" name="calories" min="0" step="1" value={item.calories} />
 		</label>
 		<div class="flex justify-end mt-4">
-			<button class="btn variant-ghost">Cancel</button>
-			<button class="btn variant-filled ml-3">Submit</button>
+			<button class="btn variant-ghost" on:click={close}>Cancel</button>
+			<button class="btn variant-filled ml-3" on:click={async () => {
+				const category = document.getElementsByTagName('select')[0].value;
+				const name = document.getElementsByTagName('input')[0].value;
+				const quantity = document.getElementsByTagName('input')[1].value;
+				const calories = document.getElementsByTagName('input')[2].value;
+				const response = await fetch(`/api/update-item?name=${name}&type=${category}&quantity=${quantity}&calories=${calories}&id=${item.id}`,
+					{
+						method: 'POST'
+					}
+				);
+				invalidateAll()
+				close();
+
+
+			}}>Submit</button>
 		</div>
 	</form>
 </section>
