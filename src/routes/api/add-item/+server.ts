@@ -51,9 +51,9 @@ export const POST: RequestHandler = async ({request}) => {
 	const { data, error } = await saveItem(supabase, {
 		'name': lines[0],
 		'type': lines[1],
+		'quantity': Number.parseInt(lines[4]),
 		'healthy': lines[2] == 'y',
 		'calories': Number.parseInt(lines[3]),
-		'quantity': Number.parseInt(lines[4])
 	});
 
 	console.log(data, error);
