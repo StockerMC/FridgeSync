@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "Given this image of a food/ingredient, you are to fill out this template: title, type, quantity, healthy, calories. They must be comma separated and conform to the template. The title must be the name of the food/ingredient and less than 3 words. Type field MUST be one of the following: Fruits, Vegetables, Grains, Meat, Dairy, Sweets, Beverages, Condiments, Other. Quantity must be a number representing the count of the item. Healthy must be 'y' or 'n'. Calories must be a number, the number of calories in one item of an average sized type of that food. Use 'null' if a field is not applicable. An example of a proper response is: Apple, Fruits/Vegetables, y, 95, 1"
+						text: "Given this image of a food/ingredient, you are to fill out this template: title, type, quantity, calories. They must be comma separated and conform to the template. The title must be the name of the food/ingredient and less than 3 words. Type field MUST be one of the following: Fruits, Vegetables, Grains, Meat, Dairy, Sweets, Beverages, Condiments, Other. Quantity must be a number representing the count of the item. Calories must be a number, the number of calories in one item of an average sized type of that food. Use 'null' if a field is not applicable. An example of a proper response is: Apple, Fruits/Vegetables, y, 95, 1"
 					},
 					{
 						type: "image_url",
@@ -51,8 +51,8 @@ export const POST: RequestHandler = async ({request}) => {
 	const { data, error } = await saveItem(supabase, {
 		'name': lines[0],
 		'type': lines[1],
-		'quantity': Number.parseInt(lines[4]),
-		'healthy': lines[2] == 'y',
+		'quantity': Number.parseInt(lines[2]),
+		// 'healthy': lines[2] == 'y',
 		'calories': Number.parseInt(lines[3]),
 	});
 
