@@ -59,6 +59,12 @@
 				>
 					Recipes
 				</a>
+				<a
+					class="btn btn-sm variant-ghost-surface"
+					href="/groceries"
+				>
+					Groceries
+				</a>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>

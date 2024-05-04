@@ -19,7 +19,8 @@
 		});
 		console.log(ingredients)
 		submit?.addEventListener('click', async () => {
-			const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
+			// TODO: past ingredients
+			const response = await fetch(`/api/fetch-groceries?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
 				method: 'POST',
 			});
 			
@@ -48,7 +49,7 @@
 		{/each}
 	</div>
 	<input type="text" id="recipePrompt">
-	<h2>What meals are you planning to make this week?</h2>
-	<button type="submit" id="recipeSubmit">Find a recipe!</button>
+	<h2>Optionally enter a prompt for a recipe</h2>
+	<button type="submit" id="recipeSubmit">Get a personalized grocery list!</button>
 	<p>{$recipe}</p>
 </div>
