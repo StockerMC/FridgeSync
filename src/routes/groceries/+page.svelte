@@ -42,7 +42,7 @@
 		<h1 class="text-6xl gradient-heading font-extrabold leading-normal p-10">Grocery Recommendations</h1>
 		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
 			<div class="input-group-shim">🔍</div>
-			<input type="search" placeholder="What meals are you planning to make this week?"
+			<input type="search" placeholder="What will you be cooking this week?"
 				   bind:this={recipePrompt} />
 			<button class="variant-filled-tertiary submit-button" on:click={search}>Submit</button>
 		</div>
