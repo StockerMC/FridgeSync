@@ -36,7 +36,6 @@
 
 </script>
 
-<input type="file"/>
 <div class="p-3">
 	<div class="flex mb-2">
 		<button class="btn variant-filled ml-auto">⧩</button>
@@ -51,6 +50,6 @@
 	</div>
 	<input type="text" id="recipePrompt">
 	<h2>Optionally enter a prompt for a recipe</h2>
-	<button type="submit" id="recipeSubmit">Find recipe!</button>
+	<button type="submit" id="recipeSubmit">Get a personalized grocery list!</button>
 	<p>{$recipe}</p>
 </div>

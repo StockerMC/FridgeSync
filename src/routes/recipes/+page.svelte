@@ -35,7 +35,6 @@
 
 </script>
 
-<input type="file"/>
 <div class="p-3">
 	<div class="flex mb-2">
 		<button class="btn variant-filled ml-auto">⧩</button>
@@ -50,6 +49,6 @@
 	</div>
 	<input type="text" id="recipePrompt">
 	<h2>What meals are you planning to make this week?</h2>
-	<button type="submit" id="recipeSubmit">Get a personalized grocery list!</button>
+	<button type="submit" id="recipeSubmit">Find a recipe!</button>
 	<p>{$recipe}</p>
 </div>
