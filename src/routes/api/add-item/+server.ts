@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "What food/ingredient is in this image? Answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?"
+						text: "What food/ingredient is in this image? Answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?\nQuantity"
 					},
 					{
 						type: "image_url",
@@ -52,7 +52,8 @@ export const POST: RequestHandler = async ({request}) => {
 		'name': lines[0],
 		'type': lines[1],
 		'healthy': lines[2] == 'y',
-		'calories': Number.parseInt(lines[3])
+		'calories': Number.parseInt(lines[3]),
+		'quantity': Number.parseInt(lines[4])
 	});
 
 	console.log(data, error);
