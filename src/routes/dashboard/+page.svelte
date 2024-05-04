@@ -37,7 +37,6 @@
 
 </script>
 
-<input type="file"/>
 <Modal show={$modal}>
 
 	<div class="p-3">

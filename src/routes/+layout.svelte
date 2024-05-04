@@ -61,6 +61,12 @@
 				</a>
 				<a
 					class="btn btn-sm variant-ghost-surface"
+					href="/groceries"
+				>
+					Groceries
+				</a>
+				<a
+					class="btn btn-sm variant-ghost-surface"
 					href="https://github.com/skeletonlabs/skeleton"
 					target="_blank"
 					rel="noreferrer"
@@ -71,7 +77,7 @@
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
-		{#if $page.url.pathname.includes("dashboard") || $page.url.pathname.includes("recipes")}
+		{#if $page.url.pathname.includes("dashboard") || $page.url.pathname.includes("recipes") || $page.url.pathname.includes("grocery")}
 			<Sidebar />
 		{/if}
 	</svelte:fragment>
