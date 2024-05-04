@@ -4,6 +4,7 @@
 	import { writable } from "svelte/store";
 	import EditItem from "$lib/components/EditItem.svelte";
 	import type { ComponentType } from "svelte";
+	import { invalidateAll } from "$app/navigation";
 
 	interface PhotoData {
 		url: string,
@@ -43,7 +44,11 @@
 				</a>
 				<div class="grid grid-cols-2 gap-2">
 					<button on:click={showModal}><img src="/edit.png" alt="Edit" class="w-4 h-4"></button>
-					<button class="" on:click={showModal}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
+					<button class="" on:click={async () => {
+						console.log('REQUESTING')
+						const response = await fetch('/api/delete-item?id=' + item.id.toString(), {method: 'POST'});
+						invalidateAll();
+					}}><img src="/delete.png" alt="Del" class="w-4 h-4"></button>
 				</div>
 			</header>
 
