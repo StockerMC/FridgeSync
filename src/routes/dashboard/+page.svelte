@@ -44,7 +44,7 @@
 	<div class="sm:p-3 ml-16 mr-16 flex=col items-center sm:items-start">
 		<h1 class="text-5xl sm:text-7xl pb-12 pt-12 self-center"><span class="gradient-heading text-center self-center">Fridge Contents</span></h1>
 		<div class="flex w-full align-center justify-between gap-x-4 sm:gap-0">
-			<div class="hidden sm:block input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
+			<div class="hidden sm:grid input-group input-group-divider grid-cols-[auto_1fr_auto] w-96">
 				<div class="input-group-divider">🔍</div>
 				<input type="search" placeholder="Search In Your Fridge:" bind:value={searchquery} />
 			</div>
