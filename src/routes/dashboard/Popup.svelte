@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+    import { invalidateAll } from '$app/navigation';
+
     export let message = 'Hi';
     import { getContext } from 'svelte';
     const { close } = getContext('simple-modal') as any;
@@ -76,6 +78,7 @@
                         body: data
                     })
                     console.log(await response.text())
+                    invalidateAll();
                 }
                 request()
             } else {
