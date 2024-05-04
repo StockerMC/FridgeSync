@@ -23,7 +23,6 @@ export const POST: RequestHandler = async ({request}) => {
 	if (!base64_image_url) {
 		return new Response('error');
 	}
-	console.log('a' + base64_image_url);
 	//const base64_image = Buffer.from(image, "base64").toString("base64");
 	const result = await openai.chat.completions.create({
 		model: "gpt-4-turbo",
@@ -33,7 +32,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "What food/ingredient is in this image? Answer ONLY in the following format, with \\n meaning to move to a new line: Name\nType"
+						text: "What food/ingredient is in this image? Answer ONLY in the following format, with \\n meaning to move to a new line and ? meaning optional (put null if the category is not applicable to the image): Name\nType\nHealthy (y/n)?\nCalorie Count?\nQuantity"
 					},
 					{
 						type: "image_url",
@@ -47,9 +46,14 @@ export const POST: RequestHandler = async ({request}) => {
 		max_tokens: 30
 	});
 
+	const lines = (result.choices[0].message.content as string).split('\n');
+
 	const { data, error } = await saveItem(supabase, {
-		'name': 'Carrot',
-		'type': 'Vegetable'
+		'name': lines[0],
+		'type': lines[1],
+		'healthy': lines[2] == 'y',
+		'calories': Number.parseInt(lines[3]),
+		'quantity': Number.parseInt(lines[4])
 	});
 
 	console.log(data, error);
