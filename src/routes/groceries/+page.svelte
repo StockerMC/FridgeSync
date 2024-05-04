@@ -21,7 +21,7 @@
 			return item.name;
 		});
 		// console.log(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`);
-		const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`, {
+		const response = await fetch(`/api/fetch-groceries?ingredients="` + ingredients + "\"" + `&prompt=${prompt}`, {
 			method: "POST"
 		});
 		// console.log("fowiejfoew");
@@ -39,13 +39,18 @@
 
 <div class="p-3">
 	<div class="flex flex-col items-center">
-		<h1 class="text-6xl gradient-heading font-extrabold leading-normal p-10">Recipe Generator</h1>
+		<h1 class="text-6xl gradient-heading font-extrabold leading-normal p-10">Grocery Recommendations</h1>
 		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
 			<div class="input-group-shim">🔍</div>
 			<input type="search" placeholder="What meals are you planning to make this week?"
 				   bind:this={recipePrompt} />
 			<button class="variant-filled-tertiary submit-button" on:click={search}>Submit</button>
 		</div>
+		{#if recipeValue}
+			<div class="variant-filled-surface rounded-3xl p-6 m-12">
+				<p>{@html $recipe}</p>
+			</div>
+		{/if}
 	</div>
 	<div class="grid grid-cols-4 gap-6 mt-6">
 		<!-- {#each {length: 7} as _, i}
