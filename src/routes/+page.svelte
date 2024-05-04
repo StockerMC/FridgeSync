@@ -14,8 +14,7 @@
 
 <div class="p-24 flex">
 	<div class="pt-24 pl-24 flex flex-col gap-32">
-		<!--TODO: Change this-->
-		<h1 class="text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Instant Inventory!</h1>
+		<h1 class="text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Cooking Up Convenience!</h1>
 		<div class="flex gap-12">
 			<button type="button" class="btn variant-filled">
 				<a href="/dashboard" class="text-2xl p-2">Get Started</a>
