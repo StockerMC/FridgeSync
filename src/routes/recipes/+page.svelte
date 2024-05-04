@@ -50,9 +50,11 @@
 		{/if}
 	</div>
 
-	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10 justify-center">
+	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10 justify-center ">
 		{#each data.fridge as item}
-			<Item item={item}>{item.name}</Item>
+			<div class="snap-center shrink-0 card w-60 text-center">
+				<Item item={item}>{item.name}</Item>
+			</div>
 		{/each}
 	</div>
 
