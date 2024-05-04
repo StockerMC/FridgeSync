@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div>
-		<img alt="fridge" src={fridge} draggable="false">
+		<img alt="fridge" src={fridge}  class="mr-64" draggable="false">
 	</div>
 </div>
 <br>
