@@ -28,6 +28,10 @@
 		<img alt="fridge" src={fridge} draggable="false">
 	</div>
 </div>
+<br>
+<br>
+<br>
+<br>
 <div class="p-24 pt-36 flex gap-8" id="about">
 	<!--Todo improve this-->
 	<div class="card card-hover overflow-hidden">
