@@ -15,6 +15,14 @@ async function saveItem(supabase: SupabaseClient<Database>, item: Database['publ
     return { data, error };
 }
 
+async function savePhoto(supabase: SupabaseClient, blob: Blob, id: number) {
+    // const file = new File([blob]);
+    const { data, error } = await supabase
+        .storage
+        .from('fridge-photos')
+        .upload(`${id}.png`, blob);
+    return { data, error };
+}
 
 // name, type, quantity, healthy, calories
 export const POST: RequestHandler = async ({request}) => {
@@ -56,7 +64,9 @@ export const POST: RequestHandler = async ({request}) => {
 		'calories': Number.parseInt(lines[4]),
 	});
 
-	console.log(data, error);
+	const imageResp = await fetch(base64_image_url);
+	const blob = await imageResp.blob();
+	if (data) await savePhoto(supabase, blob, data.id);
 
 	return new Response(
         result.choices[0].message.content,

@@ -43,7 +43,6 @@
 			start: currentPos,
 			end: currentPos + Math.round(count / numItems * 100)
 		});
-		console.log(typeData);
 		currentPos += Math.round(count / numItems * 100);
 	}
 

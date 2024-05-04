@@ -17,7 +17,6 @@
 		const ingredients = data.fridge.map((item) => {
 			return item.name;
 		});
-		console.log(ingredients)
 		submit?.addEventListener('click', async () => {
 			const response = await fetch(`/api/fetch-recipe?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
 				method: 'POST',
@@ -44,7 +43,7 @@
 			<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 		{/each} -->
 		{#each data.fridge as item}
-			<Item item={item}>{item.name}</Item>
+			<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}>{item.name}</Item>
 		{/each}
 	</div>
 	<input class="input w-96 mt-4 mb-4" type="text" id="recipePrompt" placeholder="Enter Recipe...">
