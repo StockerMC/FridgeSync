@@ -2,17 +2,19 @@
 	export let data;
 
 	const formatNutrient = (nutrient: string) => {
-		nutrient = nutrient.replaceAll("_", " ");
+		nutrient = nutrient.replaceAll("_", " ").replaceAll("%20", " ");
 		return nutrient.charAt(0).toUpperCase() + nutrient.slice(1).toLowerCase();
 	}
 
-	const capitalize = (str: string) => {
-		return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+	const titleCase = (str: string) => {
+		return str.toLowerCase().split(' ').map(function(word) {
+			return word.replace(word[0], word[0].toUpperCase());
+		}).join(' ');
 	}
 </script>
 
 <div class="p-32">
-	<h1 class="text-center text-4xl pb-8">Nutrition For 1 Serving Of {capitalize(data.pathname.slice(11))}</h1>
+	<h1 class="text-center text-4xl pb-8">Nutrition For 1 Serving Of {titleCase(data.pathname.slice(11)).replaceAll("%20", " ")}</h1>
 	<div class="table-container">
 		<table class="table table-hover">
 			<thead>
