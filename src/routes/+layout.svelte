@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 
@@ -20,6 +21,7 @@
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import Sidebar from "$lib/components/Sidebar.svelte";
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
@@ -58,6 +60,11 @@
 				</a>
 			</svelte:fragment>
 		</AppBar>
+	</svelte:fragment>
+	<svelte:fragment slot="sidebarLeft">
+		{#if $page.url.pathname.includes("dashboard")}
+			<Sidebar/>
+		{/if}
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
