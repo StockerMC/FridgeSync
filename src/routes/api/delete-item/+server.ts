@@ -1,4 +1,3 @@
-
 import type { Database } from "$lib/database-types";
 import { supabase } from "$lib/supabaseClient";
 import type { SupabaseClient } from "@supabase/supabase-js";
