@@ -37,7 +37,7 @@
 
 </script>
 
-<div class="p-3">
+<div class="pt-12 pb-12 pl-36 pr-36">
 	<div class="flex flex-col items-center">
 		<h1 class="text-6xl gradient-heading font-extrabold leading-normal p-10">Grocery Recommendations</h1>
 		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-[70%] mb-8">
