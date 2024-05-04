@@ -43,6 +43,7 @@
   "dependencies": {
     "@floating-ui/dom": "1.6.4",
     "highlight.js": "11.9.0",
-    "openai": "^4.40.2"
+    "openai": "^4.40.2",
+    "svelte-simple-modal": "^1.6.2"
   }
 }
