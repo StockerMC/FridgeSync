@@ -42,7 +42,7 @@
 
 	<div class="p-3">
 		<div class="flex mb-2">
-			<button on:click={showModal} type="button" class="btn variant-filled mr-auto"><span class="font-extrabold text-xl pr-1">+</span>add</button>
+			<button on:click={showModal} type="button" class="btn variant-filled mr-auto"><span class="font-extrabold text-xl pr-1">+</span>Add</button>
 			<button class="btn variant-filled ml-auto">⧩</button>
 		</div>
 		<div class="grid grid-cols-4 gap-6">
