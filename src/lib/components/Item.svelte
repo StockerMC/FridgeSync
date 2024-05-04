@@ -1,8 +1,7 @@
 <script lang="ts">
-	// name, type, quantity, healthy, calories
-	import type { ItemType } from "$lib/types";
-
-	export let item: ItemType;
+	import type { Tables } from "$lib/database-types";
+	
+	export let item: Tables<'fridge'>;
 </script>
 
 <div class="card p-4">
