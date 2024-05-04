@@ -34,30 +34,49 @@
 <br>
 <div class="p-4 sm:p-24 sm:pt-36 flex flex-col sm:flex-row gap-8" id="about">
 	<!--Todo improve this-->
-	<div class="card card-hover overflow-hidden">
+	<div class="card card-hover overflow-hidden w-1/2">
 		<header>
 			<img src={pattern} draggable="false" class="bg-black/50 w-full aspect-[21/9]" alt="pattern" />
 		</header>
 		<div class="p-4">
 			<h1 class="text-4xl pb-4" data-toc-ignore>About Us</h1>
 			<h1 class="text-xl">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi
-				cumque consequatur tempore
-				sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+				Scan items before they enter your fridge, access them from anywhere. The ultimate solution for
+				hassle-free kitchen management. Simplify your routines and say goodbye to food waste with ease!
+				<br>
+				<br>
+				FridgeSync addresses common kitchen challenges, including food waste from overlooked expiration dates,
+				unaffordable groceries, disorganization leading to repetitive purchases, and time-consuming meal
+				planning
+				<br>
+				<br>
+				Struggles with inefficient grocery shopping experiences, limited access to nutritional information, and
+				difficulties coordinating with family members. FridgeSync aims to solve these issues with its seamless
+				solutions.
+				<br>
+				<br>
+				FridgeSync offers a comprehensive solution, allowing users to scan items for quick identification, store
+				data in a centralized database, and access their fridge contents from anywhere. Our app empowers users
+				to make smarter meal decisions, save time, and minimize food waste.
 			</h1>
 		</div>
 	</div>
-	<div class="card card-hover overflow-hidden">
+	<div class="card card-hover overflow-hidden w-1/2">
 		<header>
 			<img src={pattern2} draggable="false" class="bg-black/50 w-full aspect-[21/9]" alt="pattern" />
 		</header>
 		<div class="p-4">
 			<h1 class="text-4xl pb-4" data-toc-ignore>Our Features</h1>
-			<h1 class="text-xl">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi
-				cumque consequatur tempore
-				sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
-			</h1>
+			<ul class="list-disc pl-4 text-xl space-y-6 font-bold">
+				<li>Scan items before they enter your fridge or pantry</li>
+				<li>Access your fridge contents from anywhere</li>
+				<li>View photos of your food at any time</li>
+				<li>Plan meals based on what you have</li>
+				<li>Generate a shopping list based on your fridge contents</li>
+				<li>Get recipe suggestions based on your items</li>
+				<li>View nutrition information of items in your fridge</li>
+				<li>View stats about items in your fridge</li>
+			</ul>
 		</div>
 	</div>
 </div>
