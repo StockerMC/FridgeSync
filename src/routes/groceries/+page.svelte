@@ -36,7 +36,7 @@
 
 </script>
 
-<div class="p-3">
+<div class="p-3 ml-16 mr-16">
 	<div class="flex mb-2">
 		<button class="btn variant-filled ml-auto">⧩</button>
 	</div>

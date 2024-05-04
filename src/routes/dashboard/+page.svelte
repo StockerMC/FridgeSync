@@ -43,7 +43,7 @@
 			<button on:click={showModal} type="button" class="btn variant-filled mr-auto"><span class="font-extrabold text-xl pr-1">+</span>Add</button>
 			<button class="btn variant-filled ml-auto">⧩</button>
 		</div>
-		<div class="grid grid-cols-4 gap-6 mt-6">
+		<div class="grid grid-cols-4 gap-6 mt-6 ml-16 mr-16">
 			<!-- {#each {length: 7} as _, i}
 				<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 			{/each} -->
