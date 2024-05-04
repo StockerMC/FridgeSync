@@ -13,7 +13,7 @@
 </script>
 
 <div class="p-24 flex">
-	<div class="pt-24 pl-24 flex flex-col gap-32">
+	<div class="pt-48 pl-24 flex flex-col gap-32">
 		<h1 class="text-7xl gradient-heading font-extrabold leading-normal">FridgeSync: Cooking Up Convenience!</h1>
 		<div class="flex gap-12">
 			<button type="button" class="btn variant-filled">
