@@ -40,7 +40,7 @@ export const POST: RequestHandler = async ({request}) => {
 				content: [
 					{
 						type: "text",
-						text: "Given this image of a food/ingredient, you are to fill out this template: title, type, healthy, quantity, calories. They must be comma separated and conform to the template. The title must be the name of the food/ingredient and less than 3 words. Type field MUST be one of the following: Fruit, Vegetable, Grain, Meat, Dairy, Sweets, Beverages, Condiments, Other. Healthy must be y/n, only no if the ingredient is unhealthy in terms of nutrition. Quantity must be a number representing the count of the item. Calories must be a number, the number of calories in one item of an average sized type of that food. Use 'null' if a field is not applicable. An example of a proper response is: Apple, Fruits, y, 2, 95"
+						text: "Given this image of a food/ingredient, you are to fill out this template: title, type, healthy, quantity, calories. They must be comma separated and conform to the template. The title must be the name of the food/ingredient and less than 3 words. Type field MUST be one of the following: Fruit, Vegetable, Grain, Meat, Dairy, Sweets, Beverages, Condiments, Other. Healthy must be y/n, only no if the ingredient is unhealthy in terms of nutrition. Quantity must be a number representing the count of the item. Calories must be a number, the number of calories in one item of an average sized type of that food. Use 'null' if a field is not applicable. An example of a proper response is: Apple, Fruit, y, 2, 95"
 					},
 					{
 						type: "image_url",

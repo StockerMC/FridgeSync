@@ -16,9 +16,9 @@
 		<label class="label">
 			<span>Category</span>
 			<select class="select">
-				<option value="Fruits" selected={item.type==="Fruits"}>Fruits</option>
-				<option value="Vegetables" selected={item.type==="Vegetables"}>Vegetables</option>
-				<option value="Grains" selected={item.type==="Grains"}>Grains</option>
+				<option value="Fruit" selected={item.type==="Fruits"}>Fruits</option>
+				<option value="Vegetable" selected={item.type==="Vegetables"}>Vegetables</option>
+				<option value="Grain" selected={item.type==="Grains"}>Grains</option>
 				<option value="Meat" selected={item.type==="Meat"}>Meat</option>
 				<option value="Dairy" selected={item.type==="Dairy"}>Dairy</option>
 				<option value="Sweets" selected={item.type==="Sweets"}>Sweets</option>
