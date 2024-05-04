@@ -15,11 +15,11 @@
 	</div>
 {:else}
 	<div class="card p-4">
-		<header class="card-header">{item.name}</header>
-		<section class="p-4">
-			<p>Type: {item.type}</p>
-			<p>Quantity: {item.quantity}</p>
-			<p>Calories: {item.calories}</p>
+		<header class="card-header font-bold text-xl">{item.name}</header>
+		<section class="p-4 text-lg">
+			<p><span class="font-semibold">Type:</span> {item.type}</p>
+			<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
+			<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 		</section>
 	</div>
 {/if}
