@@ -17,7 +17,6 @@
 		const ingredients = data.fridge.map((item) => {
 			return item.name;
 		});
-		console.log(ingredients)
 		submit?.addEventListener('click', async () => {
 			// TODO: past ingredients
 			const response = await fetch(`/api/fetch-groceries?ingredients="` + ingredients + '"'+ (prompt ? `&prompt=${prompt}` : ''), {
@@ -27,7 +26,6 @@
 		const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
 		while (true) {
 			const { value, done } = await reader.read();
-			console.log("resp", done, value);
 			if (done) break;
 			recipe.set(recipeValue + value);
 		}
@@ -45,7 +43,7 @@
 			<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 		{/each} -->
 		{#each data.fridge as item}
-			<Item item={item}>{item.name}</Item>
+			<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}>{item.name}</Item>
 		{/each}
 	</div>
 	<input class="input w-80 mt-4 mb-4" type="text" id="recipePrompt">

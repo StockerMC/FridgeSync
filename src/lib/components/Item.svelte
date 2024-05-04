@@ -5,7 +5,12 @@
 	import EditItem from "$lib/components/EditItem.svelte";
 	import type { ComponentType } from "svelte";
 
+	interface PhotoData {
+		url: string,
+		id: number
+	}
 	export let item: Tables<'fridge'>;
+	export let photo: PhotoData | undefined;
 	const modal = writable<ComponentType | null>(null);
 	const showModal = () => modal.set(bind(EditItem, { item: item }));
 </script>
@@ -40,6 +45,7 @@
 				<p><span class="font-semibold">Quantity:</span> {item.quantity}</p>
 				<p><span class="font-semibold">Calories:</span> {item.calories}</p>
 			</section>
+			<img src={photo ? photo.url : ''} alt="">
 		</div>
 	</Modal>
 {/if}

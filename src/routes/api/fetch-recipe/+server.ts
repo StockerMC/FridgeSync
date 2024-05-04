@@ -6,8 +6,8 @@ import type { RequestHandler } from "@sveltejs/kit";
 export const POST: RequestHandler = async ({request}) => {
     const { searchParams } = new URL(request.url);
     const ingredients = searchParams.get('ingredients') || '';
-    console.log(searchParams, ingredients);
-    const prompt = searchParams.get('prompt') || '';
+
+	const prompt = searchParams.get('prompt') || '';
 	//const base64_image = Buffer.from(image, "base64").toString("base64");
 	const result = await openai.chat.completions.create({
 		model: "gpt-4-turbo",

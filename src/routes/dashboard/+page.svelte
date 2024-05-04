@@ -58,8 +58,8 @@
 			<!-- {#each {length: 7} as _, i}
 				<Item item={{name: "testName", type:"testType", calories:1000, healthy:false, quantity: 2}} />
 			{/each} -->
-			{#each data.fridge.filter((item) => item.name.toLowerCase().includes(searchquery.toLowerCase())) as item}
-				<Item item={item}>{item.name}</Item>
+			{#each data.fridge.filter((item) => item.name.toLowerCase().includes(searchquery.toLowerCase().trim()) || item.type.toLowerCase().includes(searchquery.toLowerCase().trim())) as item}
+				<Item item={item} photo={data.photos?.filter(photo => photo.id == item.id)[0]}>{item.name}</Item>
 			{/each}
 		</div>
 	</div>
