@@ -1,27 +1,46 @@
 <script lang="ts">
 	import type { Tables } from "$lib/database-types";
+	import Modal, { bind } from "svelte-simple-modal";
+	import { writable } from "svelte/store";
+	import EditItem from "$lib/components/EditItem.svelte";
+	import type { ComponentType } from "svelte";
 	
 	export let item: Tables<'fridge'>;
+	const modal = writable<ComponentType | null>(null);
+	const showModal = () => modal.set(bind(EditItem, { item: item }));
 </script>
 
 {#if item === null}
-	<div class="card p-4 placeholder">
-		<header class="card-header placeholder"></header>
-		<section class="p-4">
-			<p class="placeholder">Type: </p>
-			<p class="placeholder">Quantity: </p>
-			<p class="placeholder">Calories: </p>
-		</section>
+	<div class="card p-4">
+		<div class="p-4 space-y-4">
+			<div class="placeholder animate-pulse" />
+			<div class="grid grid-cols-2 gap-8">
+				<div class="placeholder animate-pulse" />
+				<div class="placeholder animate-pulse" />
+			</div>
+			<div class="grid grid-cols-4 gap-4">
+				<div class="placeholder animate-pulse" />
+				<div class="placeholder animate-pulse" />
+				<div class="placeholder animate-pulse" />
+				<div class="placeholder animate-pulse" />
+			</div>
+		</div>
 	</div>
 {:else}
-	<div class="card p-4">
-		<header class="card-header">{item.name}</header>
-		<section class="p-4">
-			<p>Type: {item.type}</p>
-			<p>Quantity: {item.quantity}</p>
-			<p>Calories: {item.calories}</p>
-		</section>
-	</div>
+	<Modal show={$modal}>
+		<div class="card p-4">
+			<header class="card-header">
+				<h2 class="card-title mr-auto">{item.name}</h2>
+				<button class="ml-auto" on:click={showModal}>edit</button>
+				<button on:click={() => fetch(`/api/fridge/${item.id}`, { method: "DELETE" })}>delete</button>
+			</header>
+			<section class="p-4">
+				<p>Type: {item.type}</p>
+				<p>Quantity: {item.quantity}</p>
+				<p>Calories: {item.calories}</p>
+			</section>
+		</div>
+	</Modal>
 {/if}
 
 
